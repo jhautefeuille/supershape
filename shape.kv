@@ -1,0 +1,19 @@
+#:kivy 1.0.9
+#:import ut kivy.utils
+
+<RightMenu@BoxLayout>:
+    orientation: 'vertical'
+    padding: 5
+    spacing: 5
+    canvas:
+        Color:
+            rgba: ut.get_color_from_hex('566D7Eff')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<MainBox@BoxLayout>:
+	orientation: 'horizontal'
+
+        
+    
