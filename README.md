@@ -1,8 +1,9 @@
 supershape
 ==========
 
-SuperShape Editor
+SuperShape Editor can draw supershape and export to svg.
 
-Need svgwrite lib for svg export
+You need to install Kivy and svgwrite module.
 
-sudo pip install svgwrite
+	sudo pip install kivy
+	sudo pip install svgwrite
