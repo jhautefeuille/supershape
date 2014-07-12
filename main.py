@@ -21,7 +21,7 @@ if sys.platform == 'android':
 
 # Main Kivy import
 import kivy
-kivy.require('1.8.0')
+kivy.require('1.8.1')
 from kivy.config import Config
 from kivy.app import App
 
@@ -334,9 +334,9 @@ class MainBox(BoxLayout):
         self.picker_bg = ColorPicker()
         self.picker_bg.bind(color=self.on_color_bg)
 
-        # Export button
-        self.export_button = Button(text='Export to svg', size_hint=(1, 0.15))
-        self.export_button.bind(on_press=self.export_svg)
+        # Export svg button
+        self.export_button = Button(text='Export', size_hint=(1, 0.15))
+        self.export_button.bind(on_press=self.export)
 
         # Tab packs
         self.tab_param.add_widget(self.menu_right)
@@ -347,8 +347,8 @@ class MainBox(BoxLayout):
 
         # Popups
         self.pop_export = Popup(
-            title="Export svg",
-            content=Label(text="File export.svg exported"),
+            title="Export file",
+            content=Label(text="File exported"),
             size_hint=(None, None),
             size=(640, 240))
 
@@ -447,7 +447,7 @@ class MainBox(BoxLayout):
         self.shape.travel = self.slider_travel.value
         self.travel_label_value.text = str(self.slider_travel.value)
 
-    def export_svg(self, *args):
+    def export(self, *args):
         '''
         Export to svg file
         '''
@@ -465,6 +465,7 @@ class MainBox(BoxLayout):
                     end=elem[1]
                 ))
         document.save()
+        self.shape.export_to_png('export.png')
         self.pop_export.open()
 
 
